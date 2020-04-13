@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contractor Onboarding Tool</title>
+
+    <link href="https://kendo.cdn.telerik.com/2020.1.219/styles/kendo.common-material.min.css" rel="stylesheet" />
+    <link href="https://kendo.cdn.telerik.com/2020.1.219/styles/kendo.material.min.css" rel="stylesheet" />
+    <link href="https://kendo.cdn.telerik.com/2020.1.219/styles/kendo.material.mobile.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css" integrity="sha256-A47OwxL/nAN0ydiDFTSGX7ftbfTJTKgiJ0zqCuTPDh4=" crossorigin="anonymous" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://kendo.cdn.telerik.com/2020.1.219/js/kendo.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js" integrity="sha256-QHdJObhDO++VITP6S4tMlDHRWMaUOk+s/xWIRgF/YY0=" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    div.wrapper {
+        min-height: 500px; max-height: 500px; height: auto; width: 500px; overflow-y: scroll;
+    }
+    div.k-popup-edit-form div.k-edit-buttons {
+        height: 3.5em;
+        padding-right: 1.5em;
+    }
+    div.k-popup-edit-form div.k-edit-buttons a {
+        float: right;
+        margin-right: 1em;
+        margin-top: 0.5em;
+    }
+    div.k-window>div.k-popup-edit-form {
+        padding-top: 1em;
+        padding-bottom: 0em;
+    }
+    .k-textbox, .k-dropdown, .k-datepicker {
+        width: 250px;
+    }
+</style>
+<body>
+
+    <div id="toolbar" style="width: 90vw;"></div>
+    <div id="message"></div>
+    <div id="content" style="width: 90vw;">
+        <div id="grid" class="mt-4">
+            <div id="gridQuickView"></div>
+            <div id="details">
+                <div id="gridOnboarding"></div>
+                <br />
+                <div id="gridGFE"></div>
+            </div>
+        </div>
+        <div id="companies" class="mt-3">
+            <div id="gridCompany"></div>
+        </div>
+        <div id="contracts" class="mt-3">
+            <div id="gridContracts"></div>
+        </div>
+        <div id="contractors" class="mt-3">
+            <div id="gridContractor"></div>
+        </div>
+        <div id="lcats">
+            <div id="gridLCATs"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>    
+
+</body>
+</html>
