@@ -5,21 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Contractor Onboarding Tool</title>
- 
+
     <link href="https://kendo.cdn.telerik.com/2020.1.219/styles/kendo.common-material.min.css" rel="stylesheet" />
     <link href="https://kendo.cdn.telerik.com/2020.1.219/styles/kendo.material.min.css" rel="stylesheet" />
     <link href="https://kendo.cdn.telerik.com/2020.1.219/styles/kendo.material.mobile.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css" integrity="sha256-A47OwxL/nAN0ydiDFTSGX7ftbfTJTKgiJ0zqCuTPDh4=" crossorigin="anonymous" />
- 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://kendo.cdn.telerik.com/2020.1.219/js/kendo.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha256-Kg2zTcFO9LXOc7IwcBx1YeUBJmekycsnTsq2RuFHSZU=" crossorigin="anonymous"></script>
 </head>
- 
+
 <style>
     div.wrapper {
         min-height: 500px; max-height: 500px; height: auto; width: 500px; overflow-y: scroll;
+    }
+    div.k-edit-form-container {
+        width: 500px;
     }
     div.k-popup-edit-form div.k-edit-buttons {
         height: 3.5em;
@@ -34,7 +37,7 @@
         padding-top: 1em;
         padding-bottom: 0em;
     }
-    .k-textbox, .k-dropdown, .k-datepicker {
+    .k-textbox, .k-dropdown, .k-datepicker, .k-multiselect {
         width: 250px;
     }
     #pageContentTitle {
@@ -42,7 +45,7 @@
     }
 </style>
 <body>
- 
+
     <div id="toolbar" style="width: 87vw;"></div>
     <div id="message"></div>
     <div id="content" style="width: 87vw;">
@@ -78,7 +81,7 @@
             </div>
         </div>
     </script>
- 
+
     <script>
         (function (vaApp, $, undefined) {
             let Lookup = {
@@ -167,7 +170,7 @@
                             options.success();
                         }
                     },
-                    //pageSize: 5,
+                    pageSize: 5,
                     schema: {
                         model: {
                             id: 'Id',
@@ -1118,7 +1121,7 @@
                     .appendTo(container)
                     .kendoDropDownList({
                         autoBind: true,
-                        dataSource: $.dsLaborCategory,
+                        dataSource: { data: $.dsLaborCategory.data() },
                         dataTextField: 'Title',
                         dataValueField: 'Id'
                     });
@@ -1128,7 +1131,7 @@
                     .appendTo(container)
                     .kendoDropDownList({
                         autoBind: true,
-                        dataSource: $.dsCompanies,
+                        dataSource: { data: $.dsCompanies.data() },
                         dataTextField: 'Title',
                         dataValueField: 'Id'
                     });
@@ -1140,7 +1143,7 @@
                     .kendoMultiSelect({
                         autoBind: true,
                         valuePrimitive: true,
-                        dataSource: $.dsContracts,
+                        dataSource: { data: $.dsContracts.data() },
                         dataTextField: 'Title',
                         dataValueField: 'Id'
                     });
@@ -1199,6 +1202,6 @@
         $('#content').children('div :not(:first)').hide();
         $('#details').hide();
     </script>
- 
+
 </body>
 </html>
